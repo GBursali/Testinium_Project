@@ -1,6 +1,7 @@
 import BaseClasses.Constants;
 
 import static BaseClasses.Constants.BASEURL;
+import static BaseClasses.Constants.SEARCH_KEYWORD;
 
 public class Main extends NElevenTests {
 
@@ -13,6 +14,6 @@ public class Main extends NElevenTests {
         checkLogin();
 
         //Checking the search sequence
-        performSearch();
+        performSearch(SEARCH_KEYWORD);
     }
 }
