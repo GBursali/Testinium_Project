@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,11 +20,14 @@ public class BaseTest {
 
     @Before
     public void setupDriver(){
+        System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--ignore-certificate-errors","disable-popup-blocking","--disable-notifications");
+        options.addArguments("--ignore-certificate-errors",
+                "--disable-popup-blocking",
+                "--disable-notifications");
         driver = new ChromeDriver(options);
         //Delay for waiting page load.
-        waiter = new WebDriverWait(driver,2);
+        waiter = new WebDriverWait(driver,20,500);
     }
 
     /**
@@ -33,7 +37,7 @@ public class BaseTest {
     public static void navigate(String url){
         driver.navigate().to(url);
         driver.manage().window().maximize();
-        Assert.assertEquals(driver.getCurrentUrl(),BASEURL);
+        checkURL(url);
     }
 
     /**
@@ -42,7 +46,7 @@ public class BaseTest {
      * @return Loaded element
      */
     public static WebElement getWebElement(By selector){
-        return waiter.until(driver1 -> driver1.findElement(selector));
+        return waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
     //Performing actions in the website
@@ -63,6 +67,15 @@ public class BaseTest {
     public static void clickElement(By selector){
         getWebElement(selector).click();
     }
+
+    /**
+     * Checks if the current url matches with the parameter
+     * @param url URL to check
+     */
+    public static void checkURL(String url){
+        Assert.assertEquals(driver.getCurrentUrl(),url);
+    }
+
     @After
     public void KillDriver(){
         driver.quit();
