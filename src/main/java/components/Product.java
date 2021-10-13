@@ -24,6 +24,7 @@ public class Product extends BaseTest {
     }
 
     public static String getName(WebElement product){
+        elementLoaded(Selectors.PRODUCT_NAME);
         var element = product.findElement(Selectors.PRODUCT_NAME);
         waiter.until(ExpectedConditions.visibilityOf(element));
         return element.getText();
