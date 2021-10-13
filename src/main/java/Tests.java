@@ -129,8 +129,8 @@ public class Tests extends BaseTest{
         var product = Product.getRandom();
 
         //Log the product name
-        System.out.printf("Product name : %s%n", Product.getName(product));
         Product.navigate(product);
+        System.out.printf("Product name : %s%n", Product.getName(product));
 
         Product.addToBasket();
     }

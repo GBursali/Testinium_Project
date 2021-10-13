@@ -10,7 +10,7 @@ import java.util.Random;
 public class Product extends BaseTest {
     /** Selectors**/
     public static By PRODUCTS = By.cssSelector(".plink:not([data-isadbidding])");
-    public static By PRODUCT_NAME = By.cssSelector("h3.productName");
+    public static By PRODUCT_NAME = By.cssSelector("h1.proName");
     public static By PRODUCT_PRICE = By.cssSelector("ins[content]");
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
 
@@ -25,7 +25,9 @@ public class Product extends BaseTest {
         var productCount = products.toArray().length;
 
         //Select a random product
-        return products.get(rnd.nextInt(productCount));
+        var selectedProduct = products.get(rnd.nextInt(productCount));
+        waiter.until(ExpectedConditions.visibilityOf(selectedProduct));
+        return selectedProduct;
     }
 
     /**
@@ -34,8 +36,7 @@ public class Product extends BaseTest {
      * @return Name of the product
      */
     public static String getName(WebElement product){
-        elementLoaded(PRODUCT_NAME);
-        var element = product.findElement(PRODUCT_NAME);
+        var element = getWebElement(PRODUCT_NAME);
         waiter.until(ExpectedConditions.visibilityOf(element));
         return element.getText();
     }
