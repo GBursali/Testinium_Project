@@ -10,7 +10,7 @@ import java.util.Random;
 public class Product extends BaseTest {
     /** Selectors**/
     public static By PRODUCTS = By.cssSelector(".plink:not([data-isadbidding])");
-    public static By PRODUCT_NAME = By.cssSelector("h3");
+    public static By PRODUCT_NAME = By.cssSelector("h3.productName");
     public static By PRODUCT_PRICE = By.cssSelector("ins[content]");
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
 

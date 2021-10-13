@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class Basket extends BaseTest {
 
     /**Selectors **/
-    public static By SELECTOR_PRICE = By.cssSelector(".dtl.total > .price");
+    public static By SELECTOR_PRICE = By.cssSelector(".dtl > .price");
     public static By MY_CART_BUTTON = By.cssSelector(".myBasket");
     public static By SELECTOR_PRODUCT_COUNT = By.cssSelector(".quantity[name=\"quantity\"]");
     public static By SELECTOR_QUANTITY_INCREASE = By.cssSelector(".spinnerUp.spinnerArrow");

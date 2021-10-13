@@ -11,6 +11,7 @@ public class Tests extends BaseTest{
     //Login Credentials
     public static final String USERNAME = "bursaligu@gmail.com";
     public static final String PASSWORD = "tADhkRmtj9ULGUK";
+
     /**
      * Test if we can navigate to the homepage
      */
