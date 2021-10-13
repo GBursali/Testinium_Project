@@ -2,6 +2,10 @@ package BaseClasses;
 
 import org.openqa.selenium.By;
 
+/**
+ * Selectors that the website is currently using
+ * Needs update on fail
+ */
 public class Selectors {
     public static By LOGIN_USERNAME = By.id("email");
     public static By LOGIN_PASSWORD = By.id("password");
@@ -18,6 +22,6 @@ public class Selectors {
 
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
     public static By BASKET_PRICE = By.cssSelector(".dtl.total > .price");
-    public static By MYBASKETBUTTON = By.cssSelector(".myBasket");
+    public static By MY_CART_BUTTON = By.cssSelector(".myBasket");
 
 }

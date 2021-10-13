@@ -8,12 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static BaseClasses.Constants.BASEURL;
-
+/**
+ * Base class for Test purposes
+ */
 public class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait waiter;
@@ -26,12 +26,11 @@ public class BaseTest {
                 "--disable-popup-blocking",
                 "--disable-notifications");
         driver = new ChromeDriver(options);
-        //Delay for waiting page load.
         waiter = new WebDriverWait(driver,20,500);
     }
 
     /**
-     * Navigate and maximize for url
+     * Navigate and maximize for url. This function includes checking that page is navigated.
      * @param url navingating Address
      */
     public static void navigate(String url){
@@ -41,7 +40,7 @@ public class BaseTest {
     }
 
     /**
-     * Gets the element from driver after loaded.
+     * Gets the element from driver after it has been loaded.
      * @param selector Element's selector
      * @return Loaded element
      */
@@ -49,9 +48,9 @@ public class BaseTest {
         return waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
-    //Performing actions in the website
+    /*Performing actions in the website*/
     /**
-     * Finds an element in current driver and types text
+     * Finds an element in current driver and types into it
      * @param selector Element's selector
      * @param text Text to be typed
      */
@@ -70,10 +69,11 @@ public class BaseTest {
 
     /**
      * Checks if the current url matches with the parameter
-     * @param url URL to check
+     * @param expectedURL URL to check
      */
-    public static void checkURL(String url){
-        Assert.assertEquals(driver.getCurrentUrl(),url);
+    public static void checkURL(String expectedURL){
+        var currentURL = driver.getCurrentUrl();
+        Assert.assertEquals(currentURL,expectedURL);
     }
 
     @After
