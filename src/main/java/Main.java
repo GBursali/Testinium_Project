@@ -1,11 +1,15 @@
+import BaseClasses.BaseTest;
 import BaseClasses.Constants;
-import BaseClasses.Selectors;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static BaseClasses.Constants.*;
+import static components.BasketTests.*;
+import static components.LoginTests.*;
+import static components.ProductTests.*;
+import static components.SearchTests.*;
 
-public class Main extends NElevenTests {
+public class Main extends BaseTest{
     /**
      * Test if we can navigate to the homepage
      */
@@ -20,7 +24,6 @@ public class Main extends NElevenTests {
      */
     @Test
     public void testLogin(){
-        navigate(LOGINURL);
         performLogin(Constants.USERNAME,Constants.PASSWORD);
         checkLogin();
         System.out.println("Login assertion success");
@@ -53,10 +56,13 @@ public class Main extends NElevenTests {
      */
     @Test
     public void testProductBasket(){
-        //check if we can
         navigate(SEARCH_PAGE_2_URL);
-        getRandomProduct();
-        clickElement(Selectors.ADD_TO_BASKET);
+
+        var product = getRandomProduct();
+        //Log the product name
+        System.out.printf("Product name : %s%n",getProductName(product));
+        navigateProduct(product);
+
         System.out.println("Random product assertion success");
     }
 
@@ -66,18 +72,21 @@ public class Main extends NElevenTests {
     @Test
     public void testComparePrices(){
         navigate(SEARCH_PAGE_2_URL);
+        /*Product Page*/
 
-        //Retrieve product page price data
-        getRandomProduct();
-        var productPagePrice = getWebElement(Selectors.PRODUCT_PRICE).getText();
+        //Get random product and open details page
+        var product = getRandomProduct();
+        navigateProduct(product);
 
-        clickElement(Selectors.ADD_TO_BASKET);
+        //Get price and add to basket
+        var productPagePrice = getPrice();
+        addToBasket();
 
-        //Retrieve Cart Price Data
-        clickElement(Selectors.MY_CART_BUTTON);
-        var basketPagePrice = getWebElement(Selectors.BASKET_PRICE).getText();
+        /*Basket Page*/
+        navigateToBasket();
+        var basketPagePrice = getBasketPrice();
 
-        //Control
+        //Check
         Assert.assertEquals(basketPagePrice,productPagePrice);
         System.out.println("Price assertion success");
     }

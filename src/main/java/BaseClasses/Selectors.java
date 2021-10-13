@@ -20,6 +20,7 @@ public class Selectors {
     public static By PRODUCTS = By.cssSelector(".plink:not([data-isadbidding])");
     public static By PRODUCT_NAME = By.cssSelector(".productName");
     public static By PRODUCT_PRICE = By.cssSelector("ins[content]");
+    public static By PRODUCT_CAMPAIGN_PRICE = By.cssSelector(".campaignDiscount");
 
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
     public static By BASKET_PRICE = By.cssSelector(".dtl.total > .price");
