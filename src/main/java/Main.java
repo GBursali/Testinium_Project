@@ -103,6 +103,8 @@ public class Main extends BaseTest{
 
         Basket.removeProduct();
 
+        Assert.assertFalse(Basket.hasProduct());
+        System.out.println("Product remove from basket completed.");
     }
 
     private void fillBasket(){
