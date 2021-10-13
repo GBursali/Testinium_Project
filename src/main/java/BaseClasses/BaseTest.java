@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -76,6 +77,15 @@ public class BaseTest {
         Assert.assertEquals(expectedURL,currentURL);
     }
 
+    public static Boolean elementLoaded(By selector){
+        try{
+            waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
+            return true;
+        }catch (TimeoutException e){
+            return false;
+        }
+
+    }
     @After
     public void KillDriver(){
         driver.quit();

@@ -3,8 +3,6 @@ package components;
 import BaseClasses.BaseTest;
 import BaseClasses.Constants;
 import BaseClasses.Selectors;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static BaseClasses.Selectors.*;
 
@@ -16,14 +14,7 @@ public class Basket extends BaseTest {
     public static void navigate(){
         clickElement(Selectors.MY_CART_BUTTON);
         assertURL();
-
-        // A popup will be shown sometimes. Close if you have it.
-        try{
-            clickElement(BASKET_KVKK_POPUP_CLOSE);
-
-        }catch (TimeoutException ignored){
-
-        }
+        popupClose();
     }
 
     public static String getPrice(){
@@ -42,16 +33,16 @@ public class Basket extends BaseTest {
 
     public static void removeProduct(){
         clickElement(BASKET_REMOVE_PRODUCT);
-        waiter.until(ExpectedConditions.visibilityOfElementLocated(BASKET_EMPTY_TEXT));
+        elementLoaded(BASKET_EMPTY_TEXT);
     }
 
     public static Boolean hasProduct(){
-        try{
-            waiter.until(ExpectedConditions.visibilityOfElementLocated(BASKET_EMPTY_TEXT));
-            return false;
-        }
-        catch (TimeoutException e){
-            return true;
-        }
+        return !elementLoaded(BASKET_EMPTY_TEXT);
+    }
+
+    private static void popupClose(){
+
+        if(elementLoaded(BASKET_KVKK_POPUP_CLOSE))
+            clickElement(BASKET_KVKK_POPUP_CLOSE);
     }
 }
