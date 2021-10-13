@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import static BaseClasses.BaseTest.*;
-import static BaseClasses.Constants.*;
 
 public class Login {
     /** Selectors **/
@@ -12,6 +11,11 @@ public class Login {
     public static By SELECTOR_PASSWORD = By.id("password");
     public static By SELECTOR_SUBMIT = By.id("loginButton");
     public static By SELECTOR_INFO = By.cssSelector(".menuLink.user");
+
+    /**CONSTANTS**/
+    public static final String LOGINURL = BASEURL + "giris-yap";
+
+
     /**
      * Logs in to the website with given credentials
      * @param username Username of the user

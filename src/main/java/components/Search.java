@@ -3,7 +3,6 @@ package components;
 import BaseClasses.BaseTest;
 import org.openqa.selenium.By;
 
-import static BaseClasses.Constants.SEARCH_PAGE_2_URL;
 
 public class Search extends BaseTest {
     /**Selectors**/
@@ -11,6 +10,10 @@ public class Search extends BaseTest {
     public static By SELECTOR_SUBMIT = By.cssSelector(".searchBtn");
     public static By SELECTOR_PAGE_2 = By.cssSelector(".next.navigation");
 
+    /**CONSTANTS**/
+    public static final String SEARCH_KEYWORD = "bilgisayar";
+    public static final String SEARCH_RESULTSURL = BASEURL +"arama?q="+SEARCH_KEYWORD;
+    public static final String SEARCH_PAGE_2_URL = SEARCH_RESULTSURL + "&pg=2";
     /**
      * Uses search box to search a specific keyword
      * @param query Text to be searched

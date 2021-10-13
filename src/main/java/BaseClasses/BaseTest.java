@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait waiter;
+    public static final String BASEURL = "https://www.n11.com/";
 
     @Before
     public void setupDriver(){

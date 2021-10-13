@@ -1,7 +1,6 @@
 package components;
 
 import BaseClasses.BaseTest;
-import BaseClasses.Constants;
 import org.openqa.selenium.By;
 
 public class Basket extends BaseTest {
@@ -14,9 +13,13 @@ public class Basket extends BaseTest {
     public static By SELECTOR_KVKK_POPUP_CLOSE = By.cssSelector("#userKvkkModal > .content > .closeBtn");
     public static By SELECTOR_REMOVE_PRODUCT = By.cssSelector(".removeProd.svgIcon_trash");
     public static By SELECTOR_EMPTY_TEXT = By.cssSelector(".cartEmptyText");
+    public static By SELECTOR_BASKET_BADGE_COUNT = By.cssSelector(".basketTotalNum");
+
+    /**CONSTANTS**/
+    public static final String BASKETURL = BASEURL + "sepetim";
 
     private static void assertURL(){
-        checkURL(Constants.BASKETURL);
+        checkURL(BASKETURL);
     }
 
     public static void navigate(){
@@ -49,8 +52,12 @@ public class Basket extends BaseTest {
     }
 
     private static void popupClose(){
-
         if(elementLoaded(SELECTOR_KVKK_POPUP_CLOSE))
             clickElement(SELECTOR_KVKK_POPUP_CLOSE);
     }
+
+    public Boolean basketHasItem(){
+        return getWebElement(SELECTOR_BASKET_BADGE_COUNT).isDisplayed();
+    }
+
 }

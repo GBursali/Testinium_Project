@@ -1,5 +1,4 @@
 import BaseClasses.BaseTest;
-import BaseClasses.Constants;
 import components.Basket;
 import components.Login;
 import components.Product;
@@ -7,9 +6,11 @@ import components.Search;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static BaseClasses.Constants.*;
 
 public class Tests extends BaseTest{
+    //Login Credentials
+    public static final String USERNAME = "bursaligu@gmail.com";
+    public static final String PASSWORD = "tADhkRmtj9ULGUK";
     /**
      * Test if we can navigate to the homepage
      */
@@ -24,7 +25,7 @@ public class Tests extends BaseTest{
      */
     @Test
     public void testLogin(){
-        Login.perform(Constants.USERNAME,Constants.PASSWORD);
+        Login.perform(USERNAME,PASSWORD);
         Login.check();
         System.out.println("Login assertion success");
     }
@@ -35,8 +36,8 @@ public class Tests extends BaseTest{
     @Test
     public void testSearch(){
         navigate(BASEURL);
-        Search.perform(SEARCH_KEYWORD);
-        checkURL(SEARCH_RESULTSURL);
+        Search.perform(Search.SEARCH_KEYWORD);
+        checkURL(Search.SEARCH_RESULTSURL);
         System.out.println("Search assertion success");
     }
 
@@ -45,9 +46,9 @@ public class Tests extends BaseTest{
      */
     @Test
     public void testPages(){
-        navigate(SEARCH_RESULTSURL);
+        navigate(Search.SEARCH_RESULTSURL);
         Search.navigatePage2();
-        checkURL(SEARCH_PAGE_2_URL);
+        checkURL(Search.SEARCH_PAGE_2_URL);
         System.out.println("Page assertion success");
     }
 
@@ -111,8 +112,8 @@ public class Tests extends BaseTest{
         System.out.println("Product remove from basket completed.");
     }
 
-    private void  fillBasket(){
-        navigate(SEARCH_PAGE_2_URL);
+    private void fillBasket(){
+        navigate(Search.SEARCH_PAGE_2_URL);
 
         var product = Product.getRandom();
 
