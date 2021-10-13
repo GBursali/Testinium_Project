@@ -1,13 +1,18 @@
 package components;
 
 import BaseClasses.BaseTest;
-import BaseClasses.Selectors;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Random;
 
 public class Product extends BaseTest {
+    /** Selectors**/
+    public static By PRODUCTS = By.cssSelector(".plink:not([data-isadbidding])");
+    public static By PRODUCT_NAME = By.cssSelector("h3");
+    public static By PRODUCT_PRICE = By.cssSelector("ins[content]");
+    public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
 
     /**
      * Navigates to the random product in current page
@@ -16,7 +21,7 @@ public class Product extends BaseTest {
         Random rnd = new Random();
 
         //Retrieve all products in current page
-        var products = driver.findElements(Selectors.PRODUCTS);
+        var products = driver.findElements(PRODUCTS);
         var productCount = products.toArray().length;
 
         //Select a random product
@@ -24,8 +29,8 @@ public class Product extends BaseTest {
     }
 
     public static String getName(WebElement product){
-        elementLoaded(Selectors.PRODUCT_NAME);
-        var element = product.findElement(Selectors.PRODUCT_NAME);
+        elementLoaded(PRODUCT_NAME);
+        var element = product.findElement(PRODUCT_NAME);
         waiter.until(ExpectedConditions.visibilityOf(element));
         return element.getText();
     }
@@ -35,10 +40,10 @@ public class Product extends BaseTest {
     }
 
     public static void addToBasket(){
-        clickElement(Selectors.ADD_TO_BASKET);
+        clickElement(ADD_TO_BASKET);
     }
 
     public static String getPrice(){
-        return getWebElement(Selectors.PRODUCT_PRICE).getText();
+        return getWebElement(PRODUCT_PRICE).getText();
     }
 }

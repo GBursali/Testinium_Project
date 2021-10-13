@@ -1,12 +1,17 @@
 package components;
 
-import BaseClasses.Selectors;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import static BaseClasses.BaseTest.*;
 import static BaseClasses.Constants.*;
 
 public class Login {
+    /** Selectors **/
+    public static By SELECTOR_USERNAME = By.id("email");
+    public static By SELECTOR_PASSWORD = By.id("password");
+    public static By SELECTOR_SUBMIT = By.id("loginButton");
+    public static By SELECTOR_INFO = By.cssSelector(".menuLink.user");
     /**
      * Logs in to the website with given credentials
      * @param username Username of the user
@@ -14,18 +19,18 @@ public class Login {
      */
     public static void perform(String username, String password){
         navigate(LOGINURL);
-        sendTextToSelector(Selectors.LOGIN_USERNAME, username);
-        clickElement(Selectors.LOGIN_PASSWORD);
+        sendTextToSelector(SELECTOR_USERNAME, username);
+        clickElement(SELECTOR_PASSWORD);
 
-        sendTextToSelector(Selectors.LOGIN_PASSWORD, password);
-        getWebElement(Selectors.LOGIN_SUBMIT).submit();
+        sendTextToSelector(SELECTOR_PASSWORD, password);
+        getWebElement(SELECTOR_SUBMIT).submit();
     }
 
     /**
      * Checks if the user logged in
      */
     public static void check(){
-        var element = getWebElement(Selectors.LOGIN_INFO);
+        var element = getWebElement(SELECTOR_INFO);
         Assert.assertNotNull(element);
         System.out.printf("Logged in with: %s%n",element.getText());
     }
