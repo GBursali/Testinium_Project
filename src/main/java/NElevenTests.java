@@ -51,10 +51,22 @@ public class NElevenTests extends BaseTest {
      * Navigates to the random product in current page
      */
     public void getRandomProduct(){
+        Random rnd = new Random();
+
+        //Retrieve all products in current page
         var products = driver.findElements(Selectors.PRODUCTS);
         var productCount = products.toArray().length;
-        Random rnd = new Random();
+
+        //Select a random product
         var selectedProduct = products.get(rnd.nextInt(productCount));
+
+        //Retrieve the products name for log purposes
+        var productName = selectedProduct.findElement(Selectors.PRODUCT_NAME).getText();
+
+        //Print the product name to the console
+        System.out.printf("Product name : %s%n",productName);
+
+        //Navigate inside product
         selectedProduct.click();
     }
 }

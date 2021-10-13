@@ -18,6 +18,7 @@ public class Selectors {
     public static By PAGE_2 = By.cssSelector(".next.navigation");
 
     public static By PRODUCTS = By.cssSelector(".plink:not([data-isadbidding])");
+    public static By PRODUCT_NAME = By.cssSelector(".productName");
     public static By PRODUCT_PRICE = By.cssSelector("ins[content]");
 
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
