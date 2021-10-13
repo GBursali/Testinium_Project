@@ -30,5 +30,6 @@ public class Selectors {
     public static By BASKET_KVKK_POPUP_CLOSE = By.cssSelector("#userKvkkModal > .content > .closeBtn");
     public static By BASKET_REMOVE_PRODUCT = By.cssSelector(".removeProd.svgIcon_trash");
     public static By BASKET_PRODUCTS = By.cssSelector(".productGroup");
+    public static By BASKET_EMPTY_TEXT = By.cssSelector(".cartEmptyText");
 
 }

@@ -3,6 +3,7 @@ package components;
 import BaseClasses.BaseTest;
 import BaseClasses.Selectors;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Random;
 
@@ -23,7 +24,9 @@ public class Product extends BaseTest {
     }
 
     public static String getName(WebElement product){
-        return product.findElement(Selectors.PRODUCT_NAME).getText();
+        var element = product.findElement(Selectors.PRODUCT_NAME);
+        waiter.until(ExpectedConditions.visibilityOf(element));
+        return element.getText();
     }
 
     public static void navigate(WebElement product){
