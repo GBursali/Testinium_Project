@@ -20,7 +20,7 @@ public class BaseTest {
 
     @Before
     public void setupDriver(){
-        System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","./driver/editedChromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors",
                 "--disable-popup-blocking",
