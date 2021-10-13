@@ -36,6 +36,6 @@ public class Basket extends BaseTest {
     }
 
     public static Boolean hasProduct(){
-        return driver.findElements(BASKET_PRODUCTS).isEmpty();
+        return !driver.findElements(BASKET_PRODUCTS).isEmpty();
     }
 }

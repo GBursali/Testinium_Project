@@ -73,7 +73,7 @@ public class BaseTest {
      */
     public static void checkURL(String expectedURL){
         var currentURL = driver.getCurrentUrl();
-        Assert.assertEquals(currentURL,expectedURL);
+        Assert.assertEquals(expectedURL,currentURL);
     }
 
     @After
