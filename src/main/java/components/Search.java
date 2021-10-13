@@ -14,6 +14,7 @@ public class Search extends BaseTest {
     public static final String SEARCH_KEYWORD = "bilgisayar";
     public static final String SEARCH_RESULTSURL = BASEURL +"arama?q="+SEARCH_KEYWORD;
     public static final String SEARCH_PAGE_2_URL = SEARCH_RESULTSURL + "&pg=2";
+
     /**
      * Uses search box to search a specific keyword
      * @param query Text to be searched

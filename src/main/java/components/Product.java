@@ -28,6 +28,11 @@ public class Product extends BaseTest {
         return products.get(rnd.nextInt(productCount));
     }
 
+    /**
+     * Returns the name text of the product
+     * @param product Product element to be retrieved
+     * @return Name of the product
+     */
     public static String getName(WebElement product){
         elementLoaded(PRODUCT_NAME);
         var element = product.findElement(PRODUCT_NAME);
@@ -35,14 +40,25 @@ public class Product extends BaseTest {
         return element.getText();
     }
 
+    /**
+     * Navigates through the product detail page.
+     * @param product product which will be navigated to.
+     */
     public static void navigate(WebElement product){
         product.click();
     }
 
+    /**
+     * Adds the product to the basket. Needs to run by Detail page.
+     */
     public static void addToBasket(){
         clickElement(ADD_TO_BASKET);
     }
 
+    /**
+     * Returns price of the product in the Detail page.
+     * @return Price String
+     */
     public static String getPrice(){
         return getWebElement(PRODUCT_PRICE).getText();
     }

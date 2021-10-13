@@ -79,6 +79,9 @@ public class Tests extends BaseTest{
         System.out.println("Price assertion success");
     }
 
+    /**
+     * Test if we can increase the quantity of a random product
+     */
     @Test
     public void testBasketQuantity(){
         //add product to the basket
@@ -97,6 +100,10 @@ public class Tests extends BaseTest{
         Assert.assertEquals(newQuantity,"2");
         System.out.printf("New Quantity: %s%n",newQuantity);
     }
+
+    /**
+     * Test if we can remove the product from basket.
+     */
     @Test
     public void testBasketRemoveProduct(){
         //add product to the basket
@@ -113,6 +120,9 @@ public class Tests extends BaseTest{
         System.out.println("Product remove from basket completed.");
     }
 
+    /**
+     * Adds a random product from page_2 to the basket.
+     */
     private void fillBasket(){
         navigate(Search.SEARCH_PAGE_2_URL);
 

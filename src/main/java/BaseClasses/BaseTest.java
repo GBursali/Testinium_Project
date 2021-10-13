@@ -79,6 +79,11 @@ public class BaseTest {
         Assert.assertEquals(expectedURL,currentURL);
     }
 
+    /**
+     * Waits until the element load.
+     * @param selector Selector of the element which will be loaded
+     * @return whether element loaded or not (timeout)
+     */
     public static Boolean elementLoaded(By selector){
         try{
             waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
@@ -86,8 +91,8 @@ public class BaseTest {
         }catch (TimeoutException e){
             return false;
         }
-
     }
+
     @After
     public void KillDriver(){
         driver.quit();
