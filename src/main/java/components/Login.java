@@ -6,13 +6,13 @@ import org.junit.Assert;
 import static BaseClasses.BaseTest.*;
 import static BaseClasses.Constants.*;
 
-public class LoginTests {
+public class Login {
     /**
      * Logs in to the website with given credentials
      * @param username Username of the user
      * @param password Password of the user
      */
-    public static void performLogin(String username, String password){
+    public static void perform(String username, String password){
         navigate(LOGINURL);
         sendTextToSelector(Selectors.LOGIN_USERNAME, username);
         clickElement(Selectors.LOGIN_PASSWORD);
@@ -24,7 +24,7 @@ public class LoginTests {
     /**
      * Checks if the user logged in
      */
-    public static void checkLogin(){
+    public static void check(){
         var element = getWebElement(Selectors.LOGIN_INFO);
         Assert.assertNotNull(element);
         System.out.printf("Logged in with: %s%n",element.getText());

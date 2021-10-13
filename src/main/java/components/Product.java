@@ -6,13 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
-
-public class ProductTests extends BaseTest {
+public class Product extends BaseTest {
 
     /**
      * Navigates to the random product in current page
      */
-    public static WebElement getRandomProduct() {
+    public static WebElement getRandom() {
         Random rnd = new Random();
 
         //Retrieve all products in current page
@@ -23,11 +22,11 @@ public class ProductTests extends BaseTest {
         return products.get(rnd.nextInt(productCount));
     }
 
-    public static String getProductName(WebElement product){
+    public static String getName(WebElement product){
         return product.findElement(Selectors.PRODUCT_NAME).getText();
     }
 
-    public static void navigateProduct(WebElement product){
+    public static void navigate(WebElement product){
         product.click();
     }
 

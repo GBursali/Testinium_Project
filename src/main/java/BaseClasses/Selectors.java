@@ -25,5 +25,10 @@ public class Selectors {
     public static By ADD_TO_BASKET = By.cssSelector(".btnAddBasket,.addBasketUnify");
     public static By BASKET_PRICE = By.cssSelector(".dtl.total > .price");
     public static By MY_CART_BUTTON = By.cssSelector(".myBasket");
+    public static By BASKET_PRODUCT_COUNT = By.cssSelector(".quantity[name=\"quantity\"]");
+    public static By BASKET_QUANTITY_INCREASE = By.cssSelector(".spinnerUp.spinnerArrow");
+    public static By BASKET_KVKK_POPUP_CLOSE = By.cssSelector("#userKvkkModal > .content > .closeBtn");
+    public static By BASKET_REMOVE_PRODUCT = By.cssSelector(".removeProd.svgIcon_trash");
+    public static By BASKET_PRODUCTS = By.cssSelector(".productGroup");
 
 }

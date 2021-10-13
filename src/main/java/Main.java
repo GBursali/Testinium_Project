@@ -1,13 +1,13 @@
 import BaseClasses.BaseTest;
 import BaseClasses.Constants;
+import components.Basket;
+import components.Login;
+import components.Product;
+import components.Search;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static BaseClasses.Constants.*;
-import static components.BasketTests.*;
-import static components.LoginTests.*;
-import static components.ProductTests.*;
-import static components.SearchTests.*;
 
 public class Main extends BaseTest{
     /**
@@ -24,8 +24,8 @@ public class Main extends BaseTest{
      */
     @Test
     public void testLogin(){
-        performLogin(Constants.USERNAME,Constants.PASSWORD);
-        checkLogin();
+        Login.perform(Constants.USERNAME,Constants.PASSWORD);
+        Login.check();
         System.out.println("Login assertion success");
     }
 
@@ -35,7 +35,7 @@ public class Main extends BaseTest{
     @Test
     public void testSearch(){
         navigate(BASEURL);
-        performSearch(SEARCH_KEYWORD);
+        Search.perform(SEARCH_KEYWORD);
         checkURL(SEARCH_RESULTSURL);
         System.out.println("Search assertion success");
     }
@@ -46,7 +46,7 @@ public class Main extends BaseTest{
     @Test
     public void testPages(){
         navigate(SEARCH_RESULTSURL);
-        performPagination2();
+        Search.navigatePage2();
         checkURL(SEARCH_PAGE_2_URL);
         System.out.println("Page assertion success");
     }
@@ -56,13 +56,7 @@ public class Main extends BaseTest{
      */
     @Test
     public void testProductBasket(){
-        navigate(SEARCH_PAGE_2_URL);
-
-        var product = getRandomProduct();
-        //Log the product name
-        System.out.printf("Product name : %s%n",getProductName(product));
-        navigateProduct(product);
-
+        this.fillBasket();
         System.out.println("Random product assertion success");
     }
 
@@ -71,23 +65,55 @@ public class Main extends BaseTest{
      */
     @Test
     public void testComparePrices(){
-        navigate(SEARCH_PAGE_2_URL);
-        /*Product Page*/
-
-        //Get random product and open details page
-        var product = getRandomProduct();
-        navigateProduct(product);
-
-        //Get price and add to basket
-        var productPagePrice = getPrice();
-        addToBasket();
+        fillBasket();
+        var productPagePrice = Product.getPrice();
 
         /*Basket Page*/
-        navigateToBasket();
-        var basketPagePrice = getBasketPrice();
+        Basket.navigate();
+        var basketPagePrice = Basket.getPrice();
 
         //Check
         Assert.assertEquals(basketPagePrice,productPagePrice);
         System.out.println("Price assertion success");
+    }
+
+    @Test
+    public void testBasketQuantity(){
+        //add product to the basket
+        fillBasket();
+
+        Basket.navigate();
+        Assert.assertTrue(Basket.hasProduct());
+        var oldQuantity = Basket.getProductCount();
+
+        Basket.increaseQuantity();
+
+        var newQuantity = Basket.getProductCount();
+
+        //Confirmations
+        Assert.assertEquals(oldQuantity,"1");
+        Assert.assertEquals(newQuantity,"2");
+        System.out.printf("New Quantity: %s",newQuantity);
+    }
+    @Test
+    public void testBasketRemoveProduct(){
+        //add product to the basket
+        fillBasket();
+        Basket.navigate();
+
+        Basket.removeProduct();
+
+    }
+
+    private void fillBasket(){
+        navigate(SEARCH_PAGE_2_URL);
+
+        var product = Product.getRandom();
+
+        //Log the product name
+        System.out.printf("Product name : %s%n", Product.getName(product));
+        Product.navigate(product);
+
+        Product.addToBasket();
     }
 }
