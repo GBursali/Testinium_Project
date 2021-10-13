@@ -28,6 +28,7 @@ public class NElevenTests extends BaseTest {
     public void checkLogin(){
         var element = getWebElement(Selectors.LOGIN_INFO);
         Assert.assertNotNull(element);
+        System.out.printf("Logged in with: %s%n",element.getText());
     }
 
     /**
