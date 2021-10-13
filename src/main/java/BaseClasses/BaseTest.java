@@ -65,6 +65,7 @@ public class BaseTest {
      * @param selector Element's selector
      */
     public static void clickElement(By selector){
+        waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
         getWebElement(selector).click();
     }
 

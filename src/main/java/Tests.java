@@ -100,14 +100,18 @@ public class Tests extends BaseTest{
         //add product to the basket
         fillBasket();
         Basket.navigate();
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Basket.removeProduct();
 
         Assert.assertFalse(Basket.hasProduct());
         System.out.println("Product remove from basket completed.");
     }
 
-    private void fillBasket(){
+    private void    fillBasket(){
         navigate(SEARCH_PAGE_2_URL);
 
         var product = Product.getRandom();
