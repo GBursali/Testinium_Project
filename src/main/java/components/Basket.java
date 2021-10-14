@@ -13,7 +13,6 @@ public class Basket extends BaseTest {
     public static By SELECTOR_KVKK_POPUP_CLOSE = By.cssSelector("#userKvkkModal > .content > .closeBtn");
     public static By SELECTOR_REMOVE_PRODUCT = By.cssSelector(".removeProd.svgIcon_trash");
     public static By SELECTOR_EMPTY_TEXT = By.cssSelector(".cartEmptyText");
-    public static By SELECTOR_BASKET_BADGE_COUNT = By.cssSelector(".basketTotalNum");
 
     /**CONSTANTS**/
     public static final String BASKETURL = BASEURL + "sepetim";
