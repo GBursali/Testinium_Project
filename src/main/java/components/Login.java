@@ -3,7 +3,7 @@ package components;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import static BaseClasses.BaseTest.*;
+import static base.BaseTest.*;
 
 public class Login {
     /** Selectors **/

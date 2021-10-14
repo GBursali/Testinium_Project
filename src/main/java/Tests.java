@@ -1,4 +1,4 @@
-import BaseClasses.BaseTest;
+import base.BaseTest;
 import components.Basket;
 import components.Login;
 import components.Product;
@@ -9,8 +9,8 @@ import org.junit.Test;
 
 public class Tests extends BaseTest{
     //Login Credentials
-    public static final String USERNAME = "bursaligu@gmail.com";
-    public static final String PASSWORD = "tADhkRmtj9ULGUK";
+    public static final String USERNAME = "xxx";
+    public static final String PASSWORD = "xxx";
 
     /**
      * Test if we can navigate to the homepage

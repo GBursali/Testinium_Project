@@ -1,6 +1,6 @@
 package components;
 
-import BaseClasses.BaseTest;
+import base.BaseTest;
 import org.openqa.selenium.By;
 
 
