@@ -1,7 +1,8 @@
 # Testinium Project
 ## Testing N11 with Selenium and Java
 
-Tested some features of the [N11 E-Commerce Website](https://www.n11.com/)
+Tested some features of the [N11 E-Commerce Website](https://www.n11.com/).
+
 Please use your own Login Credentials on Tests.java file
 
 ### Technologies used in this project
