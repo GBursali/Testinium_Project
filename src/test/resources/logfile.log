@@ -1,0 +1,11 @@
+2021-12-22 11:09:07,157 INFO  -->-----Test flow started-------
+2021-12-22 11:09:10,486 INFO  -->--Smoke test begins-- 
+2021-12-22 11:09:28,975 INFO  -->Adding to the basket 
+2021-12-22 11:09:47,404 INFO  -->No kvkk. Bypassing... 
+2021-12-22 11:09:47,425 INFO  -->Product counting 
+2021-12-22 11:09:47,442 INFO  -->Increasing quantity 
+2021-12-22 11:09:47,538 INFO  -->Product counting 
+2021-12-22 11:09:47,551 INFO  -->Removing product 
+2021-12-22 11:09:52,139 INFO  -->[1] Bilgisayar test successful 
+2021-12-22 11:09:52,287 INFO  -->Test result summary for Tests {SUCCESSFUL=1} 
+2021-12-22 11:09:52,287 INFO  -->----------------------- 

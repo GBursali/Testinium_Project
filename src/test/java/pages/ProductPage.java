@@ -16,7 +16,7 @@ public class ProductPage extends BasePage{
      * Adds the product to the basket. Needs to run by Detail page.
      */
     public BasketPage clickAddToBasket(){
-        System.out.println("Adding to the basket");
+        LOG.info("Adding to the basket");
         clickElement(buttonAddToBasket);
         return new BasketPage();
     }

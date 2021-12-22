@@ -1,11 +1,14 @@
 package tests;
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import pages.*;
 import base.BasePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import utils.TestResultLogger;
 
+@ExtendWith(TestResultLogger.class)
 class Tests extends BasePage {
     //Login Credentials
     final String USERNAME = testSettings.getString("username");
@@ -15,6 +18,7 @@ class Tests extends BasePage {
     @ValueSource(strings = {"Bilgisayar"})
     @DisplayName("Run through all features")
     void testExplore(String queryKeyword){
+        LOG.info("--Smoke test begins--");
         HomePage page = new HomePage();
 
         ProductPage productPage = page

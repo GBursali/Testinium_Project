@@ -25,23 +25,13 @@ public class BasketPage extends BasePage{
     @FindBy(className = "cartEmptyText")
     private static WebElement labelCartEmptyText;
 
-    public static final By buttonKvkkClose = By.cssSelector("#userKvkkModal > .content > .closeBtn");
-    public BasketPage(){
-        try{
-            WebElement buttonKvkkPopupClose= driver.findElement(buttonKvkkClose);
-            clickElement(buttonKvkkPopupClose);
-        }
-        catch (NoSuchElementException e){
-            System.out.println("No kvkk. Bypassing...");
-        }
 
-    }
 
     /**
      * Increases the quantity of the product by 1
      */
     public void clickIncreaseQuantity(){
-        System.out.println("Increasing quantity");
+        LOG.info("Increasing quantity");
         clickElement(buttonQuantityIncrease);
     }
 
@@ -55,13 +45,13 @@ public class BasketPage extends BasePage{
      * Removes the product from the basket.
      */
     public void clickRemoveProduct(){
-        System.out.println("Removing product");
+        LOG.info("Removing product");
         clickElement(buttonRemoveProduct);
         waitForLoad(labelCartEmptyText);
     }
 
     public String getQuantity(){
-        System.out.println("Product counting");
+        LOG.info("Product counting");
         return labelProductCount.getText();
     }
     public BasketPage assertQuantity() {

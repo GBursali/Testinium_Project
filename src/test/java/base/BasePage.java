@@ -1,11 +1,10 @@
 package base;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.BasketPage;
 import pages.SearchPage;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
@@ -13,6 +12,8 @@ public class BasePage extends BaseTest{
 
     @FindBy(className ="myBasket")
     private static WebElement buttonMyBasket;
+
+    private static final By buttonKvkkClose = By.cssSelector("#userKvkkModal > .content > .closeBtn");
 
     public String getPAGEURL() {
         return BASEURL;
@@ -24,6 +25,13 @@ public class BasePage extends BaseTest{
 
     public BasketPage navigateToBasket(){
         clickElement(buttonMyBasket);
+        try{
+            WebElement buttonKvkkPopupClose= waitForLoad(buttonKvkkClose);
+            clickElement(buttonKvkkPopupClose);
+        }
+        catch (TimeoutException e){
+            LOG.info("No kvkk. Bypassing...");
+        }
         return new BasketPage();
     }
 
@@ -33,6 +41,10 @@ public class BasePage extends BaseTest{
 
     public WebElement waitForLoad(WebElement element) {
         return waiter.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public WebElement waitForLoad(By selector) {
+        return waiter.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
     /*Performing actions in the website*/

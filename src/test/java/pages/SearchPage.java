@@ -39,7 +39,7 @@ public class SearchPage extends BasePage{
 
     public SearchPage assertPage2Navigated(String prefix){
         String url = super.getPAGEURL() + prefix+"&pg=2";
-        Assertions.assertEquals(url,driver.getCurrentUrl());
+        Assertions.assertEquals(url,driver.getCurrentUrl(),"URL yönlendirme hatası");
         return this;
     }
 

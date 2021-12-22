@@ -1,5 +1,7 @@
 package base;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.json.JSONObject;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +23,7 @@ public abstract class BaseTest {
     public static WebDriverWait waiter;
     public static ChromeOptions driverOptions;
     public static JSONObject testSettings;
+    public static final Logger LOG = Logger.getRootLogger();
     public static final String BASEURL = "https://www.n11.com/";
 
     @BeforeAll
@@ -47,6 +50,8 @@ public abstract class BaseTest {
         }
 
         //test start step
+        DOMConfigurator.configure("./log4jconfig.xml");
+        LOG.info("-----Test flow started-------");
         driver.get(BASEURL);
     }
 
