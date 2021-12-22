@@ -17,7 +17,6 @@ class Tests extends BasePage {
     void testExplore(String queryKeyword){
         HomePage page = new HomePage();
 
-
         ProductPage productPage = page
                 .assertUrl()
                 .clickSignIn()

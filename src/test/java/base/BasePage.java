@@ -1,5 +1,6 @@
 package base;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.BasketPage;
@@ -14,13 +15,10 @@ public class BasePage extends BaseTest{
     private static WebElement buttonMyBasket;
 
     public String getPAGEURL() {
-        return PAGEURL;
+        return BASEURL;
     }
 
-    private final String PAGEURL;
-
     public BasePage() {
-        PAGEURL = BASEURL;
         PageFactory.initElements(driver,this);
     }
 
@@ -32,7 +30,6 @@ public class BasePage extends BaseTest{
     public SearchPage focusOnSearchBox(){
         return new SearchPage();
     }
-
 
     public WebElement waitForLoad(WebElement element) {
         return waiter.until(ExpectedConditions.visibilityOf(element));
