@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class Tests extends BasePage {
     //Login Credentials
+    final String USERNAME = testSettings.getString("username");
+    final String PASSWORD = testSettings.getString("password");
 
     @ParameterizedTest
     @ValueSource(strings = {"Bilgisayar"})
@@ -20,8 +22,8 @@ class Tests extends BasePage {
         ProductPage productPage = page.navigate()
                 .checkURL()
                 .clickSignIn()
-                .sendUsername(getJSONRoot().getString("username"))
-                .sendPassword(getJSONRoot().getString("password"))
+                .sendUsername(USERNAME)
+                .sendPassword(PASSWORD)
                 .submitLoginForm()
                 .assertUserLoggedIn()
                 .focusOnSearchBox(queryKeyword)

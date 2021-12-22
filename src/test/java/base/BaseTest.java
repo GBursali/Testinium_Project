@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 
 /**
@@ -19,37 +20,31 @@ public abstract class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait waiter;
     public static ChromeOptions driverOptions;
+    public static JSONObject testSettings;
     public static final String BASEURL = "https://www.n11.com/";
 
     @BeforeAll
     static void setupTest(){
-        File f = new File("src/test/resources/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", f.getAbsolutePath());
+        Path driverFilePath = new File("src/test/resources/chromedriver.exe").toPath();
+        Path configFilePath = new File("src/test/resources/config.json").toPath();
+
+        System.setProperty("webdriver.chrome.driver", driverFilePath.toString());
         driverOptions = new ChromeOptions();
         driverOptions.addArguments("--ignore-certificate-errors",
                 "--disable-popup-blocking",
                 "--disable-notifications");
-    }
-
-    @BeforeEach
-    public void setupDriver(){
         driver = new ChromeDriver(driverOptions);
         waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-
-    public JSONObject getJSONRoot(){
         try {
-            File configFile = new File("src/test/resources/config.json");
-            String content = Files.readString(configFile.toPath());
-            return new JSONObject(content);
+            String content = Files.readString(configFilePath);
+            testSettings =  new JSONObject(content);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
-    @AfterEach
-    void killDriver(){
+
+    @AfterAll
+    static void killDriver(){
         driver.quit();
     }
 }
