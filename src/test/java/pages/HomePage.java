@@ -7,12 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage{
-    /**CONSTANTS**/
+    /**Elements**/
     @FindBy(how = How.CSS, using = ".menuLink.user")
-    public static WebElement labelUserInfo;
+    private static WebElement labelUserInfo;
 
     @FindBy(how = How.CSS, using = ".btnSignIn")
-    public static WebElement buttonSignIn;
+    private static WebElement buttonSignIn;
 
     public HomePage assertUserLoggedIn(){
         waitForLoad(labelUserInfo);

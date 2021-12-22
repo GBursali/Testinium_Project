@@ -6,16 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class LoginPage extends BasePage{
-    /**CONSTANTS**/
+    /**Elements**/
 
     @FindBy(how= How.CSS, using = "#email")
-    public static WebElement inputUsername;
+    private static WebElement inputUsername;
 
     @FindBy(how = How.CSS, using = "#password")
-    public static WebElement inputPassword;
+    private static WebElement inputPassword;
 
     @FindBy(how = How.CSS, using = "#loginButton")
-    public static WebElement buttonLogin;
+    private static WebElement buttonLogin;
 
     public LoginPage sendUsername(String username){
         waitForLoad(inputUsername).sendKeys(username);

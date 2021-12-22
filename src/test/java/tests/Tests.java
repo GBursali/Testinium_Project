@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-
 class Tests extends BasePage {
     //Login Credentials
     final String USERNAME = testSettings.getString("username");
@@ -32,7 +31,7 @@ class Tests extends BasePage {
                 .sendQueryToTheSearchbox(queryKeyword)
                 .clickSearchSubmit()
                 .clickNavigatePage2()
-                .assertPage2Navigated()
+                .assertPage2Navigated("arama?q="+queryKeyword)
                 .selectRandomProduct();
 
         String price = productPage.getPrice();

@@ -12,19 +12,19 @@ public class BasketPage extends BasePage{
 
     /**Elements **/
     @FindBy(how=How.CSS,using = ".dtl > .price")
-    public static WebElement labelBasketPrice;
+    private static WebElement labelBasketPrice;
 
     @FindBy(how=How.CSS,using = ".quantity[name=\"quantity\"]")
-    public static WebElement labelProductCount;
+    private static WebElement labelProductCount;
 
     @FindBy(how=How.CSS,using = ".spinnerUp.spinnerArrow")
-    public static WebElement buttonQuantityIncrease;
+    private static WebElement buttonQuantityIncrease;
 
     @FindBy(how=How.CSS,using = ".removeProd.svgIcon_trash")
-    public static WebElement buttonRemoveProduct;
+    private static WebElement buttonRemoveProduct;
 
     @FindBy(how=How.CSS,using = ".cartEmptyText")
-    public static WebElement labelCartEmptyText;
+    private static WebElement labelCartEmptyText;
 
     public static final By buttonKvkkClose = By.cssSelector("#userKvkkModal > .content > .closeBtn");
     public BasketPage(){

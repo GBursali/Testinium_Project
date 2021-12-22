@@ -13,16 +13,16 @@ import java.util.Random;
 public class SearchPage extends BasePage{
     /**Elements**/
     @FindBy(how = How.CSS,using = ".plink:not([data-isadbidding])")
-    public static List<WebElement> divProducts;
+    private static List<WebElement> divProducts;
 
     @FindBy(how = How.CSS,using = "#searchData")
-    public static WebElement inputSearchBox;
+    private static WebElement inputSearchBox;
 
     @FindBy(how = How.CSS,using = ".searchBtn")
-    public static WebElement buttonSearchSubmit;
+    private static WebElement buttonSearchSubmit;
 
     @FindBy(how = How.CSS,using = ".next.navigation")
-    public static WebElement buttonSecondPage;
+    private static WebElement buttonSecondPage;
 
     public SearchPage sendQueryToTheSearchbox(String query){
         waitForLoad(inputSearchBox).sendKeys(query);
@@ -38,8 +38,8 @@ public class SearchPage extends BasePage{
         return this;
     }
 
-    public SearchPage assertPage2Navigated(){
-        String url = super.getPAGEURL() + "&pg=2";
+    public SearchPage assertPage2Navigated(String prefix){
+        String url = super.getPAGEURL() + prefix+"&pg=2";
         Assertions.assertEquals(url,driver.getCurrentUrl());
         return this;
     }

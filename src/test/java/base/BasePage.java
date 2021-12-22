@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class BasePage extends BaseTest{
 
     @FindBy(className ="myBasket")
-    public static WebElement buttonMyBasket;
+    private static WebElement buttonMyBasket;
 
     public String getPAGEURL() {
         return PAGEURL;
