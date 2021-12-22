@@ -32,7 +32,6 @@ class Tests extends BasePage {
                 .selectRandomProduct();
         String price = productPage.getPrice();
 
-        //add product to basket
         productPage.clickAddToBasket()
             .navigate()
             .assertPrices(price)
