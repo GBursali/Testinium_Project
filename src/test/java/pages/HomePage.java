@@ -20,6 +20,12 @@ public class HomePage extends BasePage{
         return this;
     }
 
+    public HomePage assertUrl(){
+        String currentUrl = driver.getCurrentUrl();
+        Assertions.assertEquals(super.getPAGEURL(),currentUrl);
+        return this;
+    }
+
     public LoginPage clickSignIn(){
         clickElement(buttonSignIn);
         return new LoginPage();

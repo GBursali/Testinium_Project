@@ -24,22 +24,15 @@ public class BasePage extends BaseTest{
         PageFactory.initElements(driver,this);
     }
 
-    public BasePage(String url) {
-        PAGEURL = url;
-        PageFactory.initElements(driver,this);
-    }
     public BasketPage navigateToBasket(){
         clickElement(buttonMyBasket);
         return new BasketPage();
     }
+
     public SearchPage focusOnSearchBox(){
         return new SearchPage();
     }
 
-    public void navigateToURL(){
-        driver.navigate().to(PAGEURL);
-        driver.manage().window().maximize();
-    }
 
     public WebElement waitForLoad(WebElement element) {
         return waiter.until(ExpectedConditions.visibilityOf(element));

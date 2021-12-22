@@ -20,6 +20,7 @@ class Tests extends BasePage {
 
 
         ProductPage productPage = page
+                .assertUrl()
                 .clickSignIn()
                 .sendUsername(USERNAME)
                 .sendPassword(PASSWORD)
