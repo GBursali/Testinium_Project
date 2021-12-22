@@ -1,18 +1,16 @@
 package pages;
 
-import utils.ITestPage;
 import base.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.Random;
 
 
-public class SearchPage extends BasePage implements ITestPage<SearchPage> {
+public class SearchPage extends BasePage{
     /**Elements**/
     @FindBy(how = How.CSS,using = ".plink:not([data-isadbidding])")
     public static List<WebElement> divProducts;
@@ -26,10 +24,6 @@ public class SearchPage extends BasePage implements ITestPage<SearchPage> {
     @FindBy(how = How.CSS,using = ".next.navigation")
     public static WebElement buttonSecondPage;
 
-    public SearchPage(String keyword){
-        super(BASEURL + "arama?q=" + keyword);
-        PageFactory.initElements(driver,this);
-    }
     public SearchPage sendQueryToTheSearchbox(String query){
         waitForLoad(inputSearchBox).sendKeys(query);
         return this;
@@ -58,22 +52,5 @@ public class SearchPage extends BasePage implements ITestPage<SearchPage> {
         var selectedProduct = divProducts.get(rnd.nextInt(productCount));
         waitForLoad(selectedProduct).click();
         return new ProductPage();
-    }
-
-    /**
-     * Navigates to the base URL
-     *
-     * @return Returning type
-     */
-    @Override
-    public SearchPage navigate() {
-        navigateToURL();
-        return this;
-    }
-    @Override
-    public SearchPage checkURL() {
-        var currentURL = driver.getCurrentUrl();
-        Assertions.assertEquals(getPAGEURL(),currentURL);
-        return this;
     }
 }

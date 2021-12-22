@@ -1,7 +1,8 @@
 package base;
 
-import org.json.JSONObject;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasketPage;
 import pages.SearchPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage extends BaseTest{
 
+    @FindBy(className ="myBasket")
+    public static WebElement buttonMyBasket;
 
     public String getPAGEURL() {
         return PAGEURL;
@@ -25,9 +28,12 @@ public class BasePage extends BaseTest{
         PAGEURL = url;
         PageFactory.initElements(driver,this);
     }
-
-    public SearchPage focusOnSearchBox(String keyword){
-        return new SearchPage(keyword);
+    public BasketPage navigateToBasket(){
+        clickElement(buttonMyBasket);
+        return new BasketPage();
+    }
+    public SearchPage focusOnSearchBox(){
+        return new SearchPage();
     }
 
     public void navigateToURL(){

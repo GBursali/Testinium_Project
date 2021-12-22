@@ -28,19 +28,26 @@ public abstract class BaseTest {
         Path driverFilePath = new File("src/test/resources/chromedriver.exe").toPath();
         Path configFilePath = new File("src/test/resources/config.json").toPath();
 
+        //Driver Settings
         System.setProperty("webdriver.chrome.driver", driverFilePath.toString());
         driverOptions = new ChromeOptions();
         driverOptions.addArguments("--ignore-certificate-errors",
                 "--disable-popup-blocking",
                 "--disable-notifications");
+
         driver = new ChromeDriver(driverOptions);
         waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        //reading test settings file
         try {
             String content = Files.readString(configFilePath);
             testSettings =  new JSONObject(content);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //test start step
+        driver.get(BASEURL);
     }
 
     @AfterAll

@@ -19,23 +19,25 @@ class Tests extends BasePage {
         HomePage page = new HomePage();
 
 
-        ProductPage productPage = page.navigate()
-                .checkURL()
+        ProductPage productPage = page
                 .clickSignIn()
                 .sendUsername(USERNAME)
                 .sendPassword(PASSWORD)
+
                 .submitLoginForm()
                 .assertUserLoggedIn()
-                .focusOnSearchBox(queryKeyword)
+
+                .focusOnSearchBox()
                 .sendQueryToTheSearchbox(queryKeyword)
                 .clickSearchSubmit()
                 .clickNavigatePage2()
                 .assertPage2Navigated()
                 .selectRandomProduct();
+
         String price = productPage.getPrice();
 
         productPage.clickAddToBasket()
-            .navigate()
+            .navigateToBasket()
             .assertPrices(price)
             .assertQuantity()
             .clickRemoveProduct();
