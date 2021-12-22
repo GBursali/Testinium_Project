@@ -13,7 +13,7 @@ class Tests extends BasePage {
 
     @ParameterizedTest
     @ValueSource(strings = {"Bilgisayar"})
-    @DisplayName("Run through all sides")
+    @DisplayName("Run through all features")
     void testExplore(String queryKeyword){
         HomePage page = new HomePage();
 
