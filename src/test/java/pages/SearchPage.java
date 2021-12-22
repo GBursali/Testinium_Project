@@ -1,6 +1,6 @@
 package pages;
 
-import entities.ITestPage;
+import utils.ITestPage;
 import base.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
