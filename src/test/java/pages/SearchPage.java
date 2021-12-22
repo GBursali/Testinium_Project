@@ -12,16 +12,16 @@ import java.util.Random;
 
 public class SearchPage extends BasePage{
     /**Elements**/
-    @FindBy(how = How.CSS,using = ".plink:not([data-isadbidding])")
+    @FindBy(css = ".plink:not([data-isadbidding])")
     private static List<WebElement> divProducts;
 
-    @FindBy(how = How.CSS,using = "#searchData")
+    @FindBy(id = "searchData")
     private static WebElement inputSearchBox;
 
-    @FindBy(how = How.CSS,using = ".searchBtn")
+    @FindBy(className = "searchBtn")
     private static WebElement buttonSearchSubmit;
 
-    @FindBy(how = How.CSS,using = ".next.navigation")
+    @FindBy(css = ".next.navigation")
     private static WebElement buttonSecondPage;
 
     public SearchPage sendQueryToTheSearchbox(String query){

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.How;
 
 public class ProductPage extends BasePage{
     /** Elements **/
-    @FindBy(how = How.CSS,using = "ins[content]")
+    @FindBy(css = "ins[content]")
     private static WebElement labelProductPrice;
 
-    @FindBy(how = How.CSS,using = ".btnAddBasket,.addBasketUnify")
+    @FindBy(css = ".btnAddBasket,.addBasketUnify")
     private static WebElement buttonAddToBasket;
 
     /**

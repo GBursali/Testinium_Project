@@ -11,19 +11,19 @@ import org.openqa.selenium.support.How;
 public class BasketPage extends BasePage{
 
     /**Elements **/
-    @FindBy(how=How.CSS,using = ".dtl > .price")
+    @FindBy(css = ".dtl > .price")
     private static WebElement labelBasketPrice;
 
-    @FindBy(how=How.CSS,using = ".quantity[name=\"quantity\"]")
+    @FindBy(css = ".quantity[name='quantity']")
     private static WebElement labelProductCount;
 
-    @FindBy(how=How.CSS,using = ".spinnerUp.spinnerArrow")
+    @FindBy(css = ".spinnerUp.spinnerArrow")
     private static WebElement buttonQuantityIncrease;
 
-    @FindBy(how=How.CSS,using = ".removeProd.svgIcon_trash")
+    @FindBy(css = ".removeProd.svgIcon_trash")
     private static WebElement buttonRemoveProduct;
 
-    @FindBy(how=How.CSS,using = ".cartEmptyText")
+    @FindBy(className = "cartEmptyText")
     private static WebElement labelCartEmptyText;
 
     public static final By buttonKvkkClose = By.cssSelector("#userKvkkModal > .content > .closeBtn");

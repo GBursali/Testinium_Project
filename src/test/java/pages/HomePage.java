@@ -8,10 +8,10 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage{
     /**Elements**/
-    @FindBy(how = How.CSS, using = ".menuLink.user")
+    @FindBy(css = ".menuLink.user")
     private static WebElement labelUserInfo;
 
-    @FindBy(how = How.CSS, using = ".btnSignIn")
+    @FindBy(className = "btnSignIn")
     private static WebElement buttonSignIn;
 
     public HomePage assertUserLoggedIn(){

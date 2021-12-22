@@ -8,13 +8,13 @@ import org.openqa.selenium.support.How;
 public class LoginPage extends BasePage{
     /**Elements**/
 
-    @FindBy(how= How.CSS, using = "#email")
+    @FindBy(id = "email")
     private static WebElement inputUsername;
 
-    @FindBy(how = How.CSS, using = "#password")
+    @FindBy(id = "password")
     private static WebElement inputPassword;
 
-    @FindBy(how = How.CSS, using = "#loginButton")
+    @FindBy(id = "loginButton")
     private static WebElement buttonLogin;
 
     public LoginPage sendUsername(String username){
