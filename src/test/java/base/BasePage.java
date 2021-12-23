@@ -7,7 +7,6 @@ import pages.BasketPage;
 import pages.SearchPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 public class BasePage extends BaseTest{
 
     @FindBy(className ="myBasket")
@@ -32,11 +31,20 @@ public class BasePage extends BaseTest{
         catch (TimeoutException e){
             LOG.info("No kvkk. Bypassing...");
         }
-        return new BasketPage();
+        return focusOn(BasketPage.class);
+    }
+
+    protected  <T> T focusOn(Class<T> type){
+        try {
+            return type.getDeclaredConstructor().newInstance();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public SearchPage focusOnSearchBox(){
-        return new SearchPage();
+        return focusOn(SearchPage.class);
     }
 
     public WebElement waitForLoad(WebElement element) {
