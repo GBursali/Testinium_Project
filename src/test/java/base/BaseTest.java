@@ -55,6 +55,15 @@ public abstract class BaseTest {
         driver.get(BASEURL);
     }
 
+    public <T> T focusOn(Class<T> type){
+        try {
+            return type.getDeclaredConstructor().newInstance();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @AfterAll
     static void killDriver(){
         driver.quit();

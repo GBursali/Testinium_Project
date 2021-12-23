@@ -34,19 +34,6 @@ public class BasePage extends BaseTest{
         return focusOn(BasketPage.class);
     }
 
-    protected  <T> T focusOn(Class<T> type){
-        try {
-            return type.getDeclaredConstructor().newInstance();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public SearchPage focusOnSearchBox(){
-        return focusOn(SearchPage.class);
-    }
-
     public WebElement waitForLoad(WebElement element) {
         return waiter.until(ExpectedConditions.visibilityOf(element));
     }

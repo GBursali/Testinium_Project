@@ -1,5 +1,6 @@
 package tests;
 
+import base.BaseTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import pages.*;
 import base.BasePage;
@@ -9,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import utils.TestResultLogger;
 
 @ExtendWith(TestResultLogger.class)
-class Tests extends BasePage {
+class Tests extends BaseTest {
     //Login Credentials
     final String USERNAME = testSettings.getString("username");
     final String PASSWORD = testSettings.getString("password");
@@ -30,7 +31,7 @@ class Tests extends BasePage {
                 .submitLoginForm()
                 .assertUserLoggedIn()
 
-                .focusOnSearchBox()
+                .focusOn(SearchPage.class)
                 .sendQueryToTheSearchbox(queryKeyword)
                 .clickSearchSubmit()
                 .clickNavigatePage2()
