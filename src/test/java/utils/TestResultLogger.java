@@ -1,6 +1,6 @@
 package utils;
 
-import base.BaseTest;
+import base.TestBase;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class TestResultLogger implements TestWatcher, AfterAllCallback {
     private final List<TestResultStatus> testResultsStatus = new ArrayList<>();
-    public static final Logger log = Logger.getLogger(BaseTest.class);
+    public static final Logger log = Logger.getLogger(TestBase.class);
     private enum TestResultStatus {
         SUCCESSFUL, ABORTED, FAILED, DISABLED
     }
