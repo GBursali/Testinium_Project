@@ -4,8 +4,11 @@ import base.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.concurrent.TimeUnit;
 
 public class BasketPage extends BasePage{
 
@@ -25,14 +28,17 @@ public class BasketPage extends BasePage{
     @FindBy(className = "cartEmptyText")
     private static WebElement labelCartEmptyText;
 
-
-
     /**
      * Increases the quantity of the product by 1
      */
     public void clickIncreaseQuantity(){
         LOG.info("Increasing quantity");
         clickElement(buttonQuantityIncrease);
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public BasketPage assertPrices(String price){
@@ -44,20 +50,25 @@ public class BasketPage extends BasePage{
     /**
      * Removes the product from the basket.
      */
-    public void clickRemoveProduct(){
+    public BasketPage clickRemoveProduct(){
         LOG.info("Removing product");
         clickElement(buttonRemoveProduct);
-        waitForLoad(labelCartEmptyText);
+        return this;
     }
 
-    public String getQuantity(){
+    public Integer getQuantity(){
         LOG.info("Product counting");
-        return labelProductCount.getText();
+        return Integer.parseInt(labelProductCount.getAttribute("value"));
     }
     public BasketPage assertQuantity() {
-        String quantity = getQuantity();
+        Integer quantity = getQuantity();
         clickIncreaseQuantity();
-        Assertions.assertEquals(quantity,getQuantity());
+        Assertions.assertEquals(quantity+1,getQuantity());
+        return this;
+    }
+    public BasketPage assertBasketEmpty(){
+        assertPageHasElement(labelCartEmptyText);
+        LOG.info("Basket is empty.");
         return this;
     }
 }

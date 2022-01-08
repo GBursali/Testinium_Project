@@ -1,11 +1,12 @@
-2021-12-22 11:09:07,157 INFO  -->-----Test flow started-------
-2021-12-22 11:09:10,486 INFO  -->--Smoke test begins-- 
-2021-12-22 11:09:28,975 INFO  -->Adding to the basket 
-2021-12-22 11:09:47,404 INFO  -->No kvkk. Bypassing... 
-2021-12-22 11:09:47,425 INFO  -->Product counting 
-2021-12-22 11:09:47,442 INFO  -->Increasing quantity 
-2021-12-22 11:09:47,538 INFO  -->Product counting 
-2021-12-22 11:09:47,551 INFO  -->Removing product 
-2021-12-22 11:09:52,139 INFO  -->[1] Bilgisayar test successful 
-2021-12-22 11:09:52,287 INFO  -->Test result summary for Tests {SUCCESSFUL=1} 
-2021-12-22 11:09:52,287 INFO  -->----------------------- 
+2022-01-08 19:06:23,211 INFO  -->-----Test flow started-------
+2022-01-08 19:06:26,350 INFO  -->--Smoke test begins-- 
+2022-01-08 19:07:05,654 INFO  -->Adding to the basket 
+2022-01-08 19:07:18,830 INFO  -->No kvkk. Bypassing... 
+2022-01-08 19:07:18,885 INFO  -->Product counting 
+2022-01-08 19:07:18,941 INFO  -->Increasing quantity 
+2022-01-08 19:07:24,164 INFO  -->Product counting 
+2022-01-08 19:07:24,205 INFO  -->Removing product 
+2022-01-08 19:07:27,558 INFO  -->Basket is empty. 
+2022-01-08 19:07:27,574 INFO  -->[1] Bilgisayar test successful 
+2022-01-08 19:07:27,842 INFO  -->Test result summary for Tests {SUCCESSFUL=1} 
+2022-01-08 19:07:27,842 INFO  -->-----------------------
