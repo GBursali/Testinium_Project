@@ -27,6 +27,7 @@ import java.time.Duration;
  * @noinspection ALL
  */
 public class TestBase {
+
     public static WebDriver driver;
     public static WebDriverWait waiter;
     public static ChromeOptions driverOptions;
